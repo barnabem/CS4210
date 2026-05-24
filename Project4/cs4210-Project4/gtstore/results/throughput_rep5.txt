@@ -1,0 +1,36 @@
+=== Throughput Test ===
+Replication Factor: 5
+Total Operations: 200000
+
+Pre-populating 1000 keys...
+  Populated 100/1000 keys
+  Populated 200/1000 keys
+  Populated 300/1000 keys
+  Populated 400/1000 keys
+  Populated 500/1000 keys
+  Populated 600/1000 keys
+  Populated 700/1000 keys
+  Populated 800/1000 keys
+  Populated 900/1000 keys
+  Populated 1000/1000 keys
+Starting throughput test...
+  Progress: 20000/200000 ops
+  Progress: 40000/200000 ops
+  Progress: 60000/200000 ops
+  Progress: 80000/200000 ops
+  Progress: 100000/200000 ops
+  Progress: 120000/200000 ops
+  Progress: 140000/200000 ops
+  Progress: 160000/200000 ops
+  Progress: 180000/200000 ops
+  Progress: 200000/200000 ops
+
+=== Results ===
+Total time: 945.826 seconds
+Read operations: 100149
+Write operations: 99851
+Failed operations: 0
+Throughput: 211.455 ops/sec
+
+CSV Output (for graphing):
+5,211.455

@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package gtstore;
+
+
+
+// ================= Manager ================
+
+service ManagerService {
+    rpc RegisterNode(RegisterNodeRequest) returns (RegisterNodeResponse);
+    rpc Heartbeat(HeartbeatRequest) returns (HeartbeatResponse);
+    rpc GetNodes(GetNodesRequest) returns (GetNodesResponse);
+}
+
+message RegisterNodeRequest {
+    string ip_address = 1;
+    int32 port = 2;
+}
+
+message RegisterNodeResponse {
+    int32 node_id = 1;
+    bool success = 2;
+    string message = 3; // error message may not need
+}
+
+message HeartbeatRequest {
+    int32 node_id = 1;
+}
+
+message HeartbeatResponse {
+    bool ack = 1;
+}
+
+
+// ================= Storage ================
+
+service StorageService {
+    rpc Put(PutRequest) returns (PutResponse) {}
+    rpc Get(GetRequest) returns (GetResponse) {}
+    rpc GetAllData(GetAllDataRequest) returns (GetAllDataResponse);
+    rpc ReplicateData(ReplicateDataRequest) returns (ReplicateDataResponse);
+}
+
+message PutRequest {
+    string key = 1;
+    repeated string values = 2; //not sure abt repeated
+}
+
+message PutResponse {
+    bool success = 1;
+    int32 node_id = 2;
+    string message = 3;
+}
+
+message GetRequest {
+    string key = 1;
+}
+
+message GetResponse {
+    string key = 1;
+    repeated string values = 2;
+    bool found = 3;
+    int32 node_id = 4;
+}
+
+message GetAllDataRequest {}
+
+message GetAllDataResponse {
+    repeated DataEntry entries = 1;
+}
+
+message DataEntry {
+    string key = 1;
+    repeated string values = 2;
+}
+
+message ReplicateDataRequest {
+    repeated DataEntry entries = 1;
+}
+
+message ReplicateDataResponse {
+    bool success = 1;
+    int32 node_id = 2;
+}
+
+// ================= Client ================
+message GetNodesRequest {}
+
+message GetNodesResponse {
+    repeated NodeInfoMsg nodes = 1;
+    int32 replication_factor = 2;
+}
+
+message NodeInfoMsg {
+    int32 node_id = 1;
+    string ip_address = 2;
+    int32 port = 3;
+    bool is_alive = 4;
+}

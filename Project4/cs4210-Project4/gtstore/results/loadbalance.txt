@@ -1,0 +1,37 @@
+=== Load Balance Test ===
+Total Inserts: 100000
+Nodes: 7
+Replication Factor: 1
+
+Inserting 100000 keys...
+  Progress: 10000/100000 keys
+  Progress: 20000/100000 keys
+  Progress: 30000/100000 keys
+  Progress: 40000/100000 keys
+  Progress: 50000/100000 keys
+  Progress: 60000/100000 keys
+  Progress: 70000/100000 keys
+  Progress: 80000/100000 keys
+  Progress: 90000/100000 keys
+  Progress: 100000/100000 keys
+
+=== Load Distribution Results ===
+Node ID, Key Count, Percentage
+0,14251,14.251%
+1,14230,14.23%
+2,14184,14.184%
+3,14329,14.329%
+4,14233,14.233%
+5,14391,14.391%
+6,14382,14.382%
+
+Total: 100000 keys distributed across 7 nodes
+
+CSV Output (Node ID, Key Count):
+0,14251
+1,14230
+2,14184
+3,14329
+4,14233
+5,14391
+6,14382

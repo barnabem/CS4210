@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "fcntl.h": "c",
+        "stdio.h": "c",
+        "tinyfile_lib.h": "c",
+        "tinyfile.h": "c",
+        "snappy.h": "c",
+        "pthread.h": "c"
+    }
+}

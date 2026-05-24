@@ -1,0 +1,5 @@
+input/Tiny.txt
+input/Small.jpg
+input/Medium.pdf
+input/Large.txt
+input/Huge.jpg
